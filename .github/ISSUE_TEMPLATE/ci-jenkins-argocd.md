@@ -1,74 +1,70 @@
 ---
-name: "ArgoCD to EKS Cluster Integration Issue"
-about: "Request assistance with linking ArgoCD to manage deployments on an EKS cluster."
-title: "[ArgoCD ↔️ EKS] Connect ArgoCD to EKS Cluster"
-labels: ["AWS", "EKS", "ArgoCD", "Kubernetes", "GitOps"]
+name: "Jenkins to ArgoCD Integration Issue"
+about: "Request assistance with linking a Jenkins pipeline to an ArgoCD GitOps deployment."
+title: "[Jenkins ↔️ ArgoCD] Link Pipeline to GitOps Deployment"
+labels: ["CI/CD", "Jenkins", "ArgoCD", "GitOps"]
 assignees: [manupanand]
 ---
 
 ## Description
 
 **As a** DevOps engineer  
-**I want to** connect ArgoCD to an Amazon EKS cluster  
-**So that I can** deploy and manage Kubernetes applications using GitOps workflows.
+**I want to** link a Jenkins job to trigger ArgoCD GitOps deployments  
+**So that I can** automate application delivery through GitOps best practices.
 
 ## Requirements
 
-1. **EKS Cluster Information**:
-   - **Cluster Name**: [e.g., eks-production-cluster]
-   - **AWS Region**: [e.g., us-west-2]
-   - **Kubernetes Version**: [e.g., v1.27]
-   - **Cluster Access Method**:
-     - Service account (IRSA)
-     - IAM Role assumption
-     - kubeconfig authentication
+1. **Jenkins Job Details**:
+   - **Job Name**: [e.g., build-deploy-service-a]
+   - **Pipeline Type**: Freestyle / Declarative / Scripted
+   - **Trigger Action**:
+     - Push Git commit with updated manifests
+     - Call ArgoCD API webhook to sync
+     - Other: [Specify]
 
-2. **ArgoCD Project/Application Details**:
-   - **Project Name**: [e.g., platform-team-project]
-   - **Application Repositories**:
-     - GitOps Repo URL: [e.g.,https://github.com/startup-public-repo/ci-cd-jenkins-pipeline]
-   - **Destination Cluster Settings**:
-     - Cluster URL: [e.g., https://ABCDEF.gr7.us-west-2.eks.amazonaws.com]
-     - Namespaces managed: [e.g., default, staging, production]
+2. **ArgoCD Application Details**:
+   - **Application Name**: [e.g., service-a-app]
+   - **GitOps Repository**: [e.g., https://github.com/startup-public-repo/repo]
+   - **Target Branch**: [e.g., main or develop]
 
-3. **Networking and Access**:
-   - **ArgoCD Connectivity**: Direct (internal) / External via LoadBalancer / Private endpoint
-   - **RBAC Policies**: Namespaces with limited permissions or full-cluster admin
+3. **Authentication/Access**:
+   - **ArgoCD API Token**: Available / Needs creation
+   - **Git Credentials**: Managed through Jenkins credential store (Y/N)
 
 4. **Expected Behavior**:
-   - ArgoCD should be able to deploy, sync, and monitor Kubernetes applications on the EKS cluster.
+   - Jenkins build success updates Git repo and triggers ArgoCD to deploy latest changes automatically.
 
 5. **Optional Enhancements**:
-   - Enable ApplicationSets for dynamic app generation.
-   - Add health checks and auto-sync policies.
+   - Slack or email notifications post-deployment.
+   - Add ArgoCD health checks after sync.
 
 ## Steps to Reproduce
 
-1. Register EKS cluster in ArgoCD via UI or CLI (`argocd cluster add`).
-2. Define Kubernetes apps in Git repository.
-3. Sync apps using ArgoCD UI or automation tools.
+1. Set up or modify Jenkins pipeline with GitOps repo update steps.
+2. Configure ArgoCD webhook or ArgoCD CLI command from Jenkins.
+3. Validate successful GitOps deployment through ArgoCD dashboard.
 
 ## Expected Outcome
 
-ArgoCD should successfully deploy and manage Kubernetes apps on the specified EKS cluster, with healthy sync and status reports.
+Successful and automatic promotion of new changes to Kubernetes clusters via ArgoCD after Jenkins pipeline runs.
 
 ## Actual Outcome
 
-_Describe any issues, authentication errors, or connectivity problems._
+_Describe any issues, errors, or missed steps if already attempted._
 
 ## Additional Context
 
-- Logs or errors (kubectl, ArgoCD controller logs, etc.):  
-- IAM Role / Service Account details (if issues seem permissions-related):  
-- Related GitHub repositories or manifests:  
+- Logs/screenshots (if applicable):  
+- Specific Jenkins plugins involved (if any):  
+- Related pipeline IDs or URLs:  
 
 ## Checklist
 
 Before submitting:
-- [x] EKS cluster details are provided.
-- [x] GitOps repo information is clear.
-- [x] Authentication/access method is specified.
+- [x] Jenkins job details are clear.
+- [x] ArgoCD repo and app details are included.
+- [x] Authentication methods are specified.
 
 ---
 
-### Thank you for advancing GitOps practices in our infrastructure! ☸️🚀
+### Thank you for helping us automate GitOps better! 🚀
