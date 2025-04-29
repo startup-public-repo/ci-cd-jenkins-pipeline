@@ -2,8 +2,8 @@
 name: "Link Jenkins to ArgoCD"
 description: "Request to integrate Jenkins pipeline with ArgoCD GitOps deployment"
 title: "[Integration Request] Link Jenkins Pipeline with ArgoCD"
-labels: [jenkins, argocd, gitops, ci-cd]
-assignees: [manupanand]
+labels: "[jenkins, argocd, gitops, ci-cd]"
+assignees: "[manupanand]"
 ---
 body:
   - type: markdown
