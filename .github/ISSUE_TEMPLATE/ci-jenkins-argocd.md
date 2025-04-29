@@ -1,67 +1,34 @@
 ---
-name: "Link Jenkins to ArgoCD"
-description: "Request to integrate Jenkins pipeline with ArgoCD GitOps deployment"
-title: "[Integration Request] Link Jenkins Pipeline with ArgoCD"
-labels: "[jenkins, argocd, gitops, ci-cd]"
-assignees: "[manupanand]"
+name: "Jenkins to ArgoCD Integration Issue"
+about: "Request assistance with linking a Jenkins pipeline to an ArgoCD GitOps deployment."
+title: "[Jenkins ↔️ ArgoCD] Link Pipeline to GitOps Deployment"
+labels: ["CI/CD", "Jenkins", "ArgoCD", "GitOps"]
+assignees: [manupanand]
 ---
-body:
-  - type: markdown
-    attributes:
-      value: |
-        ## 🧩 Jenkins ↔️ ArgoCD GitOps Integration
-        Use this template to request the linkage of a Jenkins pipeline to trigger or interact with ArgoCD GitOps deployments.
 
-  - type: input
-    id: jenkins-job-name
-    attributes:
-      label: Jenkins Job Name
-      description: Provide the full name of the Jenkins job or pipeline
-      placeholder: e.g., ci-pipeline-service-a
-    validations:
-      required: true
+## Description
 
-  - type: input
-    id: git-repo
-    attributes:
-      label: Git Repository (ArgoCD App Source)
-      description: Provide the Git repository URL linked to ArgoCD
-      placeholder: e.g., https://github.com/org/service-a-gitops
-    validations:
-      required: true
+**As a** DevOps engineer  
+**I want to** link a Jenkins job to trigger ArgoCD GitOps deployments  
+**So that I can** automate application delivery through GitOps best practices.
 
-  - type: input
-    id: branch
-    attributes:
-      label: Git Branch
-      description: Branch in the repo to monitor or update (typically `main` or `dev`)
-      placeholder: main
-    validations:
-      required: true
+## Requirements
 
-  - type: textarea
-    id: pipeline-action
-    attributes:
-      label: What should the Jenkins job do?
-      description: Should Jenkins update values.yaml? Create a Git commit? Just notify ArgoCD?
-      placeholder: |
-        Example:
-        - Commit updated Docker image tags to GitOps repo
-        - Trigger ArgoCD sync via webhook
-    validations:
-      required: true
+1. **Jenkins Job Details**:
+   - **Job Name**: [e.g., build-deploy-service-a]
+   - **Pipeline Type**: Freestyle / Declarative / Scripted
+   - **Trigger Action**:
+     - Push Git commit with updated manifests
+     - Call ArgoCD API webhook to sync
+     - Other: [Specify]
 
-  - type: input
-    id: argocd-app-name
-    attributes:
-      label: ArgoCD Application Name (if known)
-      description: Optional – Name of the ArgoCD application for targeting sync
-      placeholder: service-a
-    validations:
-      required: false
+2. **ArgoCD Application Details**:
+   - **Application Name**: [e.g., service-a-app]
+   - **GitOps Repository**: [e.g., https://github.com/org/service-a-gitops]
+   - **Target Branch**: [e.g., main or develop]
 
-  - type: textarea
-    id: additional-info
-    attributes:
-      label: Additional Information
-      description: Any environment, security, or RBAC considerations
+3. **Authentication/Access**:
+   - **ArgoCD API Token**: Available / Needs creation
+   - **Git Credentials**: Managed through Jenkins credential store (Y/N)
+
+4. **Expected Behavior**:
