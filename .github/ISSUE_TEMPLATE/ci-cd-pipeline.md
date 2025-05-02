@@ -61,6 +61,4 @@ Before submitting this issue, ensure the following:
 - [x] Relevant logs or screenshots are included (if applicable).
 - [x] The issue title is descriptive and concise.
 
----
 
-### Thank you for your contribution!
