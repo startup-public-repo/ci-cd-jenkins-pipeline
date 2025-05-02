@@ -45,6 +45,3 @@ We welcome contributions to improve the functionality and efficiency of this Jen
 ## License
 This project is licensed under [MIT License](LICENSE).
 
----
-
-Feel free to tweak this to suit your specific setup and requirements! Let me know if you'd like help customizing it further.
