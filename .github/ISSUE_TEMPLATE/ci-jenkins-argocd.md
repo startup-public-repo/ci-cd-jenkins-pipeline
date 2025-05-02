@@ -65,6 +65,4 @@ Before submitting:
 - [x] ArgoCD repo and app details are included.
 - [x] Authentication methods are specified.
 
----
 
-### Thank you for helping us automate GitOps better! 🚀
